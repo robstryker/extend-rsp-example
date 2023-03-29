@@ -1,0 +1,104 @@
+{
+  "name": "vscode-mytype-server-connector",
+  "displayName": "MyType Server Connectors",
+  "description": "Connects vscode with MyType servers and runtimes.",
+  "version": "0.1.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "publisher": "example",
+  "author": "Example",
+  "preview": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-user/rsp-server-mytype.git"
+  },
+  "bugs": "https://github.com/your-user/rsp-server-mytype.git",
+  "engines": {
+    "vscode": "^1.30.0"
+  },
+  "activationEvents": [
+    "onCommand:server.createServer",
+    "onCommand:server.addLocation",
+    "onCommand:server.downloadRuntime",
+    "onCommand:server.startRSP",
+    "onCommand:server.disconnectRSP",
+    "onCommand:server.stopRSP",
+    "onCommand:server.terminateRSP",
+    "onCommand:server.start",
+    "onCommand:server.debug",
+    "onCommand:server.stop",
+    "onCommand:server.terminate",
+    "onCommand:server.restart",
+    "onCommand:server.restartDebug",
+    "onCommand:server.remove",
+    "onCommand:server.output",
+    "onCommand:server.add",
+    "onCommand:server.publishFull",
+    "onCommand:server.publishIncremental",
+    "onCommand:server.actions",
+    "onView:servers"
+  ],
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "server",
+    "runtimes",
+    "adapters"
+  ],
+  "icon": "images/karaf.png",
+  "main": "./out/src/extension",
+  "scripts": {
+    "package": "node ./build/package.js",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "npm run compile && node ./out/test/test-runner.js",
+    "ui-test": "npm run compile && extest setup-and-run out/test/ui-test/allTestsSuite.js -c max",
+    "update-deps": "node_modules/.bin/ncu --upgrade --loglevel verbose --packageFile package.json && npm update",
+    "coverage:upload": "codecov -f coverage/coverage-final.json",
+    "build": "npm run compile && npm run package",
+    "lint": "eslint src test --fix"
+  },
+  "extensionDependencies": [
+    "redhat.vscode-rsp-ui"
+  ],
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^12.12.35",
+    "@types/sinon": "^7.0.13",
+    "@types/tcp-port-used": "^1.0.0",
+    "@types/vscode": "^1.30.0",
+    "@types/wait-on": "^5.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "decache": "^4.5.1",
+    "decompress": "^4.2.1",
+    "eslint": "^7.32.0",
+    "glob": "^7.1.4",
+    "istanbul": "^0.4.5",
+    "mocha": "^9.1.0",
+    "mocha-jenkins-reporter": "^0.4.7",
+    "remap-istanbul": "^0.13.0",
+    "sinon": "^7.3.2",
+    "sinon-chai": "^3.3.0",
+    "typescript": "^4.0.3",
+    "vscode-extension-tester": "^5.0.0",
+    "vscode-test": "^1.2.3"
+  },
+  "dependencies": {
+    "expand-home-dir": "0.0.3",
+    "find-java-home": "^1.2.2",
+    "fs-extra": "^10.0.0",
+    "path": "0.12.7",
+    "path-exists": "^4.0.0",
+    "portfinder": "^1.0.20",
+    "rsp-client": "^0.23.0",
+    "tcp-port-used": "^1.0.1",
+    "vscode-server-connector-api": "0.1.7",
+    "wait-on": "^6.0.0"
+  }
+}
